@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Promise For Our Future</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            color: #2b1b1d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(214, 51, 132, 0.08);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            border: 1px solid rgba(255, 182, 193, 0.4);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #9c2c46;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 18px;
+            color: #5c4d50;
+            line-height: 1.6;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        /* BUTTON LAYOUT FOR STEP 1 */
+        .proposal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            min-height: 70px;
+        }
+
+        button {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            padding: 14px 36px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yes {
+            background-color: #d63384;
+            color: white;
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-2px);
+            background-color: #b8256f;
+        }
+
+        .btn-no {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+            position: absolute;
+            transition: all 0.15s ease;
+        }
+
+        /* MULTIPLE CHOICE STYLING */
+        .choices-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .choice-row {
+            border: 1px solid #ebd3d6;
+            border-radius: 15px;
+            padding: 16px;
+            cursor: pointer;
+            font-size: 18px;
+            background-color: white;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .choice-row:hover {
+            background-color: #fff0f2;
+            border-color: #ffb3c1;
+        }
+
+        .choice-row input {
+            display: none;
+        }
+
+        .choice-row.selected {
+            background-color: #ffe3e8;
+            border-color: #d63384;
+            color: #9c2c46;
+            font-weight: 600;
+        }
+
+        .btn-continue {
+            background-color: #2b1b1d;
+            color: white;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-continue:hover {
+            background-color: #422d30;
+        }
+
+        /* EXTRA STYLING FOR THE FINAL SCREEN */
+        .heart-icon {
+            font-size: 50px;
+            color: #d63384;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- STEP 1: THE BIG QUESTION -->
+        <div class="step active" id="step1">
+            <h1>My Whole Heart...</h1>
+            <p>From the moment we met, I knew my life would change forever. Will you marry me?</p>
+            <div class="proposal-actions" id="action-wrapper">
+                <!-- YES button stays firmly on the left -->
+                <button class="btn-yes" onclick="navigate(2)">YES</button>
+                <!-- NO button on the right will evade selection -->
+                <button class="btn-no" id="evading-button">NO</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: THE WEDDING TIMELINE -->
+        <div class="step" id="step2">
+            <h1>A Beautiful Future</h1>
+            <p>When do you want us to get married?</p>
+            <div class="choices-list">
+                <div class="choice-row" onclick="handleSelect(this, 'timeline')">
+                    <input type="radio" name="timeline" value="This upcoming year">
+                    <span>This upcoming year</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'timeline')">
+                    <input type="radio" name="timeline" value="As soon as humanly possible">
+                    <span>As soon as humanly possible</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'timeline')">
+                    <input type="radio" name="timeline" value="Whenever our dream venue is ready">
+                    <span>Whenever our dream venue is ready</span>
+                </div>
+            </div>
+            <button class="btn-continue" onclick="navigate(3)">Continue</button>
+        </div>
+
+        <!-- STEP 3: HONEYMOON DESTINATION -->
+        <div class="step" id="step3">
+            <h1>Our Honeymoon</h1>
+            <p>Where should we fly to celebrate our love?</p>
+            <div class="choices-list">
+                <div class="choice-row" onclick="handleSelect(this, 'honeymoon')">
+                    <input type="radio" name="honeymoon" value="Spain">
+                    <span>Spain</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'honeymoon')">
+                    <input type="radio" name="honeymoon" value="Paris">
+                    <span>Paris</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'honeymoon')">
+                    <input type="radio" name="honeymoon" value="A surprise tropical island">
+                    <span>A surprise tropical island</span>
+                </div>
+            </div>
+            <button class="btn-continue" onclick="navigate(4)">Continue</button>
+        </div>
+
+        <!-- STEP 4: KIDS QUANTITY -->
+        <div class="step" id="step4">
+            <h1>Growing Our Family</h1>
+            <p>How many beautiful children do you want to have with me?</p>
+            <div class="choices-list">
+                <div class="choice-row" onclick="handleSelect(this, 'kids')">
+                    <input type="radio" name="kids" value="10">
+                    <span>10</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'kids')">
+                    <input type="radio" name="kids" value="11">
+                    <span>11</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'kids')">
+                    <input type="radio" name="kids" value="12">
+                    <span>12</span>
+                </div>
+                <div class="choice-row" onclick="handleSelect(this, 'kids')">
+                    <input type="radio" name="kids" value="Even more than 12!">
+                    <span>Even more than 12!</span>
+                </div>
+            </div>
+            <button class="btn-continue" onclick="processFinal()">See Our Promise</button>
+        </div>
+
+        <!-- STEP 5: CELEBRATION SUMMARY -->
+        <div class="step" id="step5">
+            <div class="heart-icon">❤️</div>
+            <h1>Forever Starts Now!</h1>
+            <p>You said YES to spending the rest of your life with me.</p>
+            <p id="summary-text" style="font-size: 16px; border-top: 1px solid #ebd3d6; padding-top: 20px; color: #7d666a;"></p>
+        </div>
+
+    </div>
+
+    <script>
+        // RUNAWAY BUTTON MECHANISM
+        const noBtn = document.getElementById('evading-button');
+        const wrapper = document.getElementById('action-wrapper');
+
+        function moveButton() {
+            const wrapperBounds = wrapper.getBoundingClientRect();
+            const btnBounds = noBtn.getBoundingClientRect();
+
+            // Establish secure borders inside the main container card
+            const permissibleWidth = wrapperBounds.width - btnBounds.width;
+            const permissibleHeight = 160; 
+
+            const newX = Math.floor(Math.random() * permissibleWidth);
+            const newY = Math.floor((Math.random() * permissibleHeight) - (permissibleHeight / 2));
+
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+        }
+
+        noBtn.addEventListener('mouseenter', moveButton);
+        noBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // SCREEN NAVIGATION SYSTEM
+        function navigate(targetStep) {
+            document.querySelectorAll('.step').forEach(element => element.classList.remove('active'));
+            document.getElementById('step' + targetStep).classList.add('active');
+        }
+
+        // ROW SELECTION SYSTEM
+        function handleSelect(element, groupName) {
+            // Uncheck other rows in the same selection group
+            element.parentElement.querySelectorAll('.choice-row').forEach(row => row.classList.remove('selected'));
+            
+            // Mark current row as active
+            element.classList.add('selected');
+m
