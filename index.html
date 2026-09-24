@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;A Promise For Our Future&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', 'Georgia', serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2b1b1d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.95);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 45px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 50px rgba(214, 51, 132, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 500px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 182, 193, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 32px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #9c2c46;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #5c4d50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.step.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* BUTTON LAYOUT FOR STEP 1 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.proposal-actions {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 70px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Helvetica Neue', Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-yes {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #d63384;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 15px rgba(214, 51, 132, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-yes:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #b8256f;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-no {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #6c757d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #dee2e6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.15s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* MULTIPLE CHOICE STYLING */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choices-list {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choice-row {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ebd3d6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.25s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choice-row:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff0f2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ffb3c1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choice-row input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choice-row.selected {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #ffe3e8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #d63384;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #9c2c46;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-continue {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2b1b1d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-continue:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #422d30;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* EXTRA STYLING FOR THE FINAL SCREEN */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.heart-icon {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #d63384;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: pulse 1.5s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes pulse {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: scale(1); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: scale(1.15); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: scale(1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- STEP 1: THE BIG QUESTION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step active" id="step1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;My Whole Heart...&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;From the moment we met, I knew my life would change forever. Will you marry me?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="proposal-actions" id="action-wrapper"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- YES button stays firmly on the left --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-yes" onclick="navigate(2)"&gt;YES&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NO button on the right will evade selection --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-no" id="evading-button"&gt;NO&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- STEP 2: THE WEDDING TIMELINE --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step" id="step2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;A Beautiful Future&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;When do you want us to get married?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'timeline')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="timeline" value="This upcoming year"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;This upcoming year&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'timeline')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="timeline" value="As soon as humanly possible"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;As soon as humanly possible&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'timeline')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="timeline" value="Whenever our dream venue is ready"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;Whenever our dream venue is ready&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-continue" onclick="navigate(3)"&gt;Continue&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- STEP 3: HONEYMOON DESTINATION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step" id="step3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Our Honeymoon&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Where should we fly to celebrate our love?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'honeymoon')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="honeymoon" value="Spain"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;Spain&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'honeymoon')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="honeymoon" value="Paris"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;Paris&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'honeymoon')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="honeymoon" value="A surprise tropical island"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;A surprise tropical island&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-continue" onclick="navigate(4)"&gt;Continue&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- STEP 4: KIDS QUANTITY --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step" id="step4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Growing Our Family&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;How many beautiful children do you want to have with me?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'kids')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="kids" value="10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;10&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'kids')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="kids" value="11"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;11&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'kids')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="kids" value="12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;12&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choice-row" onclick="handleSelect(this, 'kids')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="radio" name="kids" value="Even more than 12!"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;Even more than 12!&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-continue" onclick="processFinal()"&gt;See Our Promise&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- STEP 5: CELEBRATION SUMMARY --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="step" id="step5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="heart-icon"&gt;❤️&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Forever Starts Now!&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;You said YES to spending the rest of your life with me.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="summary-text" style="font-size: 16px; border-top: 1px solid #ebd3d6; padding-top: 20px; color: #7d666a;"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// RUNAWAY BUTTON MECHANISM</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const noBtn = document.getElementById('evading-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const wrapper = document.getElementById('action-wrapper');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function moveButton() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const wrapperBounds = wrapper.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const btnBounds = noBtn.getBoundingClientRect();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Establish secure borders inside the main container card</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const permissibleWidth = wrapperBounds.width - btnBounds.width;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const permissibleHeight = 160;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const newX = Math.floor(Math.random() * permissibleWidth);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const newY = Math.floor((Math.random() * permissibleHeight) - (permissibleHeight / 2));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>noBtn.style.left = newX + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>noBtn.style.top = newY + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>noBtn.addEventListener('mouseenter', moveButton);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>noBtn.addEventListener('touchstart', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>moveButton();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// SCREEN NAVIGATION SYSTEM</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function navigate(targetStep) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.step').forEach(element =&gt; element.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('step' + targetStep).classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ROW SELECTION SYSTEM</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function handleSelect(element, groupName) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Uncheck other rows in the same selection group</p>
+<p class="p1"><span class="Apple-converted-space">            </span>element.parentElement.querySelectorAll('.choice-row').forEach(row =&gt; row.classList.remove('selected'));</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Mark current row as active</p>
+<p class="p1"><span class="Apple-converted-space">            </span>element.classList.add('selected');</p>
+<p class="p1">m</p>
+</body>
+</html>
